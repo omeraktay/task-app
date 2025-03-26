@@ -13,24 +13,39 @@ function App() {
     setTasks((tasks) => [...tasks, task]);
   }
   function handleClearList(){
-    const approval = window.confirm("This will delete all your tasks. Do you want to continue?");
-    if(approval){
+    const clearList = window.confirm("This will delete all your tasks. Do you want to continue?");
+    if(clearList){
       setTasks([]);
+    }
+  }
+  function handleCompleteTask(id){
+    setTasks((prevTasks) => prevTasks.map((task) => task.id === id ? { ...task, completed: !task.completed} : task));
+  }
+  function handleEditTask(id, newTitle, newDetails){
+    setTasks((prevTasks) => prevTasks.map((task) => task.id === id ? {...task, taskTitle: newTitle, taskDetail: newDetails} : task));
+  }
+  function handleDeleteTask(id){
+    const deleteTask = window.confirm("Do you want to delete this task?");
+    if(deleteTask){
+      setTasks(tasks => tasks.filter(task => task.id !== id));
     }
   }
 
   return (
-    <>
       <div className="wrapper">
           <div className="content">
               <Header />
               <TaskForm onAddTask={handleAddTask} onClearList={handleClearList}/>
-              <TaskList tasks={tasks}/>
-              <Summary tasks={tasks}/>
+              <TaskList tasks={tasks} onCompleteTask={handleCompleteTask} onEditTask={handleEditTask} onDeleteTask={handleDeleteTask}/>
+              
           </div>
+          <div className='summaryCont'>
+            <Summary tasks={tasks}/>
+          </div>
+          <div className='footerCont'>
             <Footer />
+            </div>
         </div>
-    </>
   )
 }
 
