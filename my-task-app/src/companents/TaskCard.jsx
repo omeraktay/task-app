@@ -15,7 +15,7 @@ export default function TaskCard({task, onCompleteTask, onEditTask, onDeleteTask
 
     return (
         <div className="container">
-            <div className="card mb-3">
+            <div className="card mb-3 task-card">
                 <div className="card-header d-flex justify-content-between">
                     <div>
                         {
@@ -53,8 +53,8 @@ export default function TaskCard({task, onCompleteTask, onEditTask, onDeleteTask
                 </div>
                 <div className="card-footer">
                     <div className="d-flex justify-content-between">
-                        <button className="btn btn-warning me-1" onClick={() => setIsEditing(true)}>Edit</button>
-                        <button className={`btn btn-${task.completed ? "dark" : "success"} me-1`} onClick={() => onCompleteTask(task.id)}>
+                        <button className="btn btn-warning me-1 edit-button" onClick={() => setIsEditing(true)}>Edit</button>
+                        <button className={`btn btn-${task.completed ? "dark" : "success"} me-1 `} onClick={() => onCompleteTask(task.id)}>
                             {task.completed ? "Change Status" : "Complete"}
                         </button>
                         <button className="btn btn-danger me-1" onClick={() => onDeleteTask(task.id)}>Delete</button>

@@ -23,7 +23,7 @@ export default function TaskForm({onAddTask, onClearList}){
                     <form onSubmit={handleFormSubmit}>
                         <input id="taskTitle" className="mt-2 form-control" type="text" placeholder="Task title..." value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)} required/> <br />
                         <textarea id="taskDetail" placeholder="Add details for your task..." className="form-control mt-0" value={taskDetail} onChange={(e) => setTaskDetail(e.target.value)} required></textarea>
-                        <button className="btn btn-primary me-2 mt-3" type="submit"> ➕ Add</button>
+                        <button className="btn btn-primary me-2 mt-3 add-button" type="submit"> ➕ Add</button>
                         <button className="btn btn-danger me-2 mt-3" type="button" onClick={onClearList}> 🗑️ Delete All</button>
                     </form>
                 </div>

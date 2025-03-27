@@ -5,6 +5,8 @@ import Header from "./companents/Header";
 import TaskForm from './companents/TaskForm';
 import TaskList from './companents/TaskList';
 import Summary from './companents/Summary';
+import "./styles/App.scss";
+
 // import { data } from '../data';
 
 function App() {
